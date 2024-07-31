@@ -27,7 +27,8 @@ name – строковый тип;
 Используя CRUD-операцию INSERT, наполните сущность manufacturer в соответствии с данными, имеющимися в атрибуте manufacturer сущности mobile_phones.
 
 ### Решение
-'''
+Код MySQL
+```
 DROP TABLE IF EXISTS itresume10574509.manufacturer;
 
 CREATE TABLE itresume10574509.manufacturer(
@@ -44,4 +45,4 @@ VALUES
 ('Huawei');
 
 SELECT name FROM itresume10574509.manufacturer;
-'''
+```
