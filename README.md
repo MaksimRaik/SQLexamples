@@ -114,3 +114,33 @@ UPDATE mobile_phones SET manufacturer='Huawei' WHERE manufacturer_id=3;
 SELECT id, product_name, manufacturer_id FROM mobile_phones;
 ```
 
+## Задача 4
+
+### Условие
+
+Имеется таблица (сущность) с заказами orders.
+У сущности имеются следующие поля(атрибуты):
+id – идентификатор;
+mobile_phones_id – идентификатор мобильного телефона;
+order_status - статус.
+
+Подробное описание статусов заказа:
+OPEN – «Order is in open state» ;
+CLOSED - «Order is closed»;
+CANCELLED - «Order is cancelled»
+
+Необходимо вывести идентификатор и подробное описание статуса заказа.
+
+### Решение
+
+```
+SELECT 
+	id AS 'Номер заказа',
+	CASE order_status 
+		WHEN 'OPEN' THEN 'Order is in open state'
+		WHEN 'CLOSED' THEN 'Order is closed'
+		WHEN 'CANCELLED' THEN 'Order is cancelled'
+	END AS full_order_status
+FROM orders;
+```
+
