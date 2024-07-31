@@ -80,5 +80,37 @@ FROM mobile_phones;
 
 ### Условие
 
+Имеется таблица (сущность) с мобильными телефонами mobile_phones.
+У сущности имеются следующие поля(атрибуты):
+id – идентификатор;
+product_name – название;
+manufacturer – производитель;
+product_count – количество;
+price – цена.
 
+Имеется таблица-справочник (сущность) производителей manufacturer.
+У сущности имеются следующие поля(атрибуты):
+id – идентификатор;
+name – название.
+
+Создайте для сущности mobile_phones внешний ключ manufacturer_id (идентификатор производителя), направленный на атрибут id сущности manufacturer. Установите каскадное обновление - CASCADE, а при удалении записи из сущности manufacturer – SET NULL.
+
+Используя CRUD-операцию UPDATE обновите данные в атрибуте manufacturer_id сущности mobile_phones согласно значений, имеющихся в атрибуте manufacturer.
+
+Удалите атрибут manufacturer из сущности mobile_phones.
+
+Выведите идентификатор, название и идентификатор производителя сущности mobile_phones.
+
+### Решение
+
+```
+ALTER TABLE mobile_phones
+ADD FOREIGN KEY(manufacturer_id) REFERENCES manufacturer(id);
+
+UPDATE mobile_phones SET manufacturer='Apple' WHERE manufacturer_id=1;
+UPDATE mobile_phones SET manufacturer='Samsung' WHERE manufacturer_id=2;
+UPDATE mobile_phones SET manufacturer='Huawei' WHERE manufacturer_id=3;
+
+SELECT id, product_name, manufacturer_id FROM mobile_phones;
+```
 
