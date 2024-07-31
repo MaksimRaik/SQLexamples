@@ -27,7 +27,7 @@ name – строковый тип;
 Используя CRUD-операцию INSERT, наполните сущность manufacturer в соответствии с данными, имеющимися в атрибуте manufacturer сущности mobile_phones.
 
 ### Решение
-Код MySQL
+
 ```
 DROP TABLE IF EXISTS itresume10574509.manufacturer;
 
@@ -46,3 +46,39 @@ VALUES
 
 SELECT name FROM itresume10574509.manufacturer;
 ```
+## Задача 2
+
+### Условие
+
+Имеется таблица (сущность) с мобильными телефонами mobile_phones.
+У сущности имеются следующие поля(атрибуты):
+id – идентификатор;
+product_name – название;
+manufacturer – производитель;
+product_count – количество;
+price – цена.
+
+Статусы количества мобильных телефонов (в зависимости от количества): меньше 100 – «little»; от 100 до 300 – «many»; больше 300 – «lots».
+
+Необходимо вывести название, производителя и статус количества для мобильных телефонов.
+
+### Решение
+
+```
+SELECT 
+	product_name AS 'Название',
+	manufacturer AS 'Производитель',
+	CASE 
+		WHEN product_count < 100 THEN 'little'
+		WHEN product_count BETWEEN 100 AND 300 THEN 'many'
+		WHEN product_count > 300 THEN 'lots'
+	END AS 'Статус количества'	
+FROM mobile_phones;
+```
+
+## Задача 3
+
+### Условие
+
+
+
